@@ -1,0 +1,24 @@
+{
+  "name": "Haiku-App",
+  "version": "1.0.0",
+  "description": "Create Haiku Simple",
+  "author": "Nathan Brewer-Davis",
+  "license": "UNLICENSED",
+  "private": false,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.13.0",
+    "express-static": "^1.0.3"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
