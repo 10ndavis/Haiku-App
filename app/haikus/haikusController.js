@@ -7,10 +7,10 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
 
 
 
-    $scope.poems = [ //this is where the data from the get request will go
-      {name: 'John Smith', poem: 'test poem'},
-      {name: 'Nathan Brewer-Davis', poem: 'test poem 2'}
-    ]
+    // $scope.poems = [ //this is where the data from the get request will go
+    //   {name: 'John Smith', poem: 'test poem'},
+    //   {name: 'Nathan Brewer-Davis', poem: 'test poem 2'}
+    // ];
 
 
   //TODO: make server render information upon request,
@@ -23,57 +23,22 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
         url: '/getPoems',//TODO:
       })
       .then(function (resp) {
-        console.log("resp====>", resp); //data is coming back blank
-        return resp.data;
+        //console.log(resp.data); //data is coming back blank
+        $scope.poems = resp.data;
       });
     }
+
+
+  $scope.postPoem = function(name, poem){
+      $http({
+        url: '/postPoem',
+        method: 'POST',
+        data: {"name": name, "poem": poem}
+      })
+  }
+
+
+
+
 });
 
-
-
-
-//check if input is haiku
-
-
-// angular.module('myApp', [])
-
-// .factory('Haikus', function ($http) {
-
-//   var getAll = function() {//just call getAll at set interval upon document ready?
-//     return $http({
-//       method: 'GET',
-//       url: '/api/getPoems',//TODO:
-//     })
-//     .then(function (resp) {
-//       return resp.data;
-//     });
-//   };
-
-//   return {
-//     getAll: getAll,
-//   };
-// })
-
-
-    //$scope.poems = /*function call to get poems*/;
-
-
-
-    // };
-
-
-
-      // $scope.results = [];
-
-      // $scope.search = function () {
-      //     $http.get('/your/url/search', { params: user },//TODO:
-      //       function (response) { $scope.results = response; },
-      //       function (failure) { console.log("failed :(", failure); });
-
-  //     $scope.buttonClicks = 0;
-  //     $scope.handleButtonClick = function(){
-  //       $scope.buttonClicks++;
-  //     }
-
-  //   }
-  // ]);

@@ -5,6 +5,9 @@ var port = process.env.PORT || 3000;
 var mongodb = require('mongodb').MongoClient;
 var connectionURL = 'mongodb://user:12345@ds145289.mlab.com:45289/haikudb'
 var Promise = require('bluebird')
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 //CONNECTION TO MONGODB
 mongodb.connect(connectionURL, function(err, db){
@@ -28,9 +31,9 @@ mongodb.connect(connectionURL, function(err, db){
 
 
   //ADD DATA TO DB
-  function addData(name, title, body, date){
+  function addData(name, poem){
     db.collection("haikus", function(err, collection){
-      collection.insert({"name": name, "title": title, "body": body, "date": date});
+      collection.insert({"name": name, "poem": poem});
     })
   }
 
@@ -63,10 +66,22 @@ app.get('/haikusController.js', function (req, res) {
 
 app.get('/getPoems', function(req, res){
   getData(function(data){
-    console.log("this is data", data);
+    //console.log("this is data", data);
     res.send(data);
   })
 })
+
+
+
+app.post('/postPoem', function(req, res){
+
+    var name = req.body.name;
+    var poem = req.body.poem;
+
+    addData(name, poem);
+})
+
+
 
 app.listen(port, function () {
   console.log('Example app listening on port 3000!')
