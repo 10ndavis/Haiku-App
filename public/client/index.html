@@ -21,8 +21,10 @@
  <div ng-app="myApp" ng-controller="haikuCtrl">
 
 Author: <input type="text" ng-model="author"><br>
-Haiku: <input type="text" ng-model="haiku"><br>
-<button ng-click="postPoem(author, haiku)">submit haiku</button>
+Haiku: <input type="text" ng-model="haikuLineOne"><br>
+Haiku: <input type="text" ng-model="haikuLineTwo"><br>
+Haiku: <input type="text" ng-model="haikuLineThree"><br>
+<button ng-click="postPoem(author, haikuLineOne, haikuLineTwo, haikuLineThree)">submit haiku</button>
 
 <br>
   <div id=poems ng-repeat='poem in poems'>

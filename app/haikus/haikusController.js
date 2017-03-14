@@ -29,7 +29,9 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
     }
 
 
-  $scope.postPoem = function(name, poem){
+  $scope.postPoem = function(name, lineOne, lineTwo, lineThree){
+    var poem = lineOne + "\n" + lineTwo + "\n" + lineThree;
+    console.log(poem);
       $http({
         url: '/postPoem',
         method: 'POST',
