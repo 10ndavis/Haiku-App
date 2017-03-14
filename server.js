@@ -11,16 +11,21 @@ mongodb.connect(connectionURL, function(err, db){
 
 
 //GET DATA FROM DB
-  function getData(){
-   db.collection("haikus", function(err, collection){
-    collection.find().toArray(function(err, items){
-      if(err){
-        throw err;
-      }
-      console.log(items);//displays all items in the db
-    })
-   })
-  }
+
+  function getData(){//make this a promise?
+    var result;
+     db.collection("haikus", function(err, collection){
+      collection.find().toArray(function(err, items){
+        if(err){
+          console.log(err);
+        }
+        result = items.slice();
+        console.log(result); //this result consoles just fine.
+      });
+     });
+    console.log(result); //this result comes up undefined.
+    return result;
+  };
 
 
 
@@ -61,7 +66,8 @@ app.get('/haikusController.js', function (req, res) {
 
 app.get('/getPoems', function(req, res){
   var resData = getData();//Map to server function to get all data
-  res.send(resData);
+  console.log(resData)
+  res.send(resData);//how to send the data object??
 })
 
 app.listen(port, function () {

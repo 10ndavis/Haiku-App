@@ -41,12 +41,10 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
         url: '/getPoems',//TODO:
       })
       .then(function (resp) {
-        console.log("resp====>", resp.data);
+        console.log("resp====>", resp.data); //data is coming back blank
         return resp.data;
       });
-
-  }
-
+    }
 });
 
 // angular.module('myApp', [])
