@@ -31,7 +31,6 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
 
   $scope.postPoem = function(name, lineOne, lineTwo, lineThree){
     var poem = lineOne + "\n" + lineTwo + "\n" + lineThree;
-    console.log(poem);
       $http({
         url: '/postPoem',
         method: 'POST',
@@ -40,24 +39,43 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
   }
 
   $scope.checkLegalFive = function(line){
-    if(sylCheck(line) !== 5){
-      console.log("this has to be five");
-  }
+    if(checkSent(line) !== 5){
+      $('#lineone').css("background", "rgba(244, 66, 66, 0.3)")
+    } else {
+      $('#lineone').css("background", "none")
+    }
 }
 
   $scope.checkLegalSeven = function(line){
-    if(sylCheck(line) !== 7){
-      console.log("this has to be seven");
+    if(checkSent(line) !== 7){
+      $('#linetwo').css("background", "rgba(244, 66, 66, 0.3)")
+    } else {
+      $('#linetwo').css("background", "none")
+    }
+  }
+
+  $scope.checkLegalSevenTwo = function(line){
+    if(checkSent(line) !== 5){
+      $('#linethree').css("background", "rgba(244, 66, 66, 0.3)")
+    } else {
+      $('#linethree').css("background", "none")
     }
   }
 
 
 
+    function checkSent(sentence){
+      var splitSent = sentence.split(" ");
+      var result = 0;
+      splitSent.forEach(function(word){
+        result = result + sylCheck(word);
+      })
+      return result;
+    }
 
 
     function sylCheck(word) {
-    word = word.toLowerCase();
-    if(word.length <= 3) { return 1; }
+      word = word.toLowerCase();
       word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
       word = word.replace(/^y/, '');
       return word.match(/[aeiouy]{1,2}/g).length;

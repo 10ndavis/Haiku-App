@@ -21,9 +21,9 @@
  <div ng-app="myApp" ng-controller="haikuCtrl">
 
 <input type="text" ng-model="author" placeholder="Auther Name"><br>
-<input type="text" ng-model="haikuLineOne" ng-change="checkLegalFive(haikuLineOne)" placeholder="Haiku line one"><br>
-<input type="text" ng-model="haikuLineTwo" placeholder="Haiku line two"><br>
-<input type="text" ng-model="haikuLineThree" placeholder="Haiku line three"><br>
+<input id="lineone" type="text" ng-model="haikuLineOne" ng-change="checkLegalFive(haikuLineOne)" placeholder="Haiku line one"><br>
+<input id="linetwo" type="text" ng-model="haikuLineTwo" ng-change="checkLegalSeven(haikuLineTwo)" placeholder="Haiku line two"><br>
+<input id="linethree" type="text" ng-model="haikuLineThree" ng-change="checkLegalSevenTwo(haikuLineThree)" placeholder="Haiku line three"><br>
 <button ng-click="postPoem(author, haikuLineOne, haikuLineTwo, haikuLineThree)">submit haiku</button>
 
 <br>
@@ -37,6 +37,10 @@
 
 
 <script src="haikusController.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.slim.js"
+  integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
+  crossorigin="anonymous"></script>
 
 </body>
 </html>
