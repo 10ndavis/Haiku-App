@@ -9,6 +9,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "angularjs": "0.0.1",
     "bcrypt-nodejs": "0.0.3",
     "ejs": "^2.4.1",
     "express": "^4.13.4",

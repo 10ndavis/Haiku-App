@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <title>Haiku</title>
 </head>
 <body>
-  <div>
+  <!-- <div ng-app="haikus.controller" ng-controller="haikusController">
     <input type="text" name="author" placeholder="authors name">
     <input type="text" name="title" placeholder="title of your haiku">
     <input type="text" name="body" placeholder="haiku body">
+    <button ng-click="handleButtonClick()">Button</button>
   </div>
   <br>
   <div>
-    this is where the haikus will display
-  </div>
+    button clicks: {{ buttonClicks }}
+  </div> -->
+
+
+
+ <div ng-app="myApp" ng-controller="haikuCtrl">
+
+Author: <input type="text" ng-model="author"><br>
+Haiku: <input type="text" ng-model="haiku"><br>
+<br>
+Full Name: {{ poems }}
+
+</div>
+
+
+<script src="haikusController.js"></script>
+
 </body>
 </html>
