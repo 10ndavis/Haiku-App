@@ -20,10 +20,10 @@
 
  <div ng-app="myApp" ng-controller="haikuCtrl">
 
-Author: <input type="text" ng-model="author"><br>
-Haiku: <input type="text" ng-model="haikuLineOne"><br>
-Haiku: <input type="text" ng-model="haikuLineTwo"><br>
-Haiku: <input type="text" ng-model="haikuLineThree"><br>
+<input type="text" ng-model="author" placeholder="Auther Name"><br>
+<input type="text" ng-model="haikuLineOne" ng-change="checkLegalFive(haikuLineOne)" placeholder="Haiku line one"><br>
+<input type="text" ng-model="haikuLineTwo" placeholder="Haiku line two"><br>
+<input type="text" ng-model="haikuLineThree" placeholder="Haiku line three"><br>
 <button ng-click="postPoem(author, haikuLineOne, haikuLineTwo, haikuLineThree)">submit haiku</button>
 
 <br>
