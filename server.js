@@ -4,6 +4,7 @@ var static = require('express-static');
 var port = process.env.PORT || 3000;
 var mongodb = require('mongodb').MongoClient;
 var connectionURL = 'mongodb://user:12345@ds145289.mlab.com:45289/haikudb'
+var Promise = require('bluebird')
 
 //CONNECTION TO MONGODB
 mongodb.connect(connectionURL, function(err, db){
@@ -12,19 +13,15 @@ mongodb.connect(connectionURL, function(err, db){
 
 //GET DATA FROM DB
 
-  function getData(){//make this a promise?
-    var result;
+  function getData(callback){//make this a promise?
      db.collection("haikus", function(err, collection){
       collection.find().toArray(function(err, items){
         if(err){
           console.log(err);
         }
-        result = items.slice();
-        console.log(result); //this result consoles just fine.
+        callback(items);
       });
-     });
-    console.log(result); //this result comes up undefined.
-    return result;
+    });
   };
 
 
@@ -65,9 +62,10 @@ app.get('/haikusController.js', function (req, res) {
 
 
 app.get('/getPoems', function(req, res){
-  var resData = getData();//Map to server function to get all data
-  console.log(resData)
-  res.send(resData);//how to send the data object??
+  getData(function(data){
+    console.log("this is data", data);
+    res.send(data);
+  })
 })
 
 app.listen(port, function () {
