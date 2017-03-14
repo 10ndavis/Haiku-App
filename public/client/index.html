@@ -30,9 +30,9 @@
 <button id="submitPoemButton" disabled='disabled' ng-click="postPoem(author, haikuLineOne, haikuLineTwo, haikuLineThree)">submit haiku</button>
 
 <br>
-  <div id="poemsdiv" id=poems ng-repeat='poem in poems'>
+  <div class="col-centered" id="poemsdiv" ng-repeat='poem in poems'>
   <ul>
-    <li>{{ poem.name + " - " + poem.poem }} </li>
+    <li class="poem">{{ poem.name + " - " + poem.poem }} </li>
   </ul>
   </div>
 

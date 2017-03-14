@@ -8,6 +8,17 @@ body {
   border: solid #e3e7ed 5px;
   background: rgba(54, 25, 25, .2);
   border border-radius: 2px;
-  margin: 10px;
   color: white;
+}
+
+.col-centered{
+  text-align: center;
+  float: none;
+  margin: 0 auto;
+  width: 65%;
+}
+
+
+.poem {
+  list-style-type: none;
 }
