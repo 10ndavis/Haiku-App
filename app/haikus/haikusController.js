@@ -3,7 +3,7 @@
 var app = angular.module('myApp', []);
 app.controller('haikuCtrl', function($scope, $interval, $http) {
 
-    $interval(getPoems, 3000);
+    $interval(getPoems, 500);
 
 
 
@@ -30,6 +30,9 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
 
 
   $scope.postPoem = function(name, lineOne, lineTwo, lineThree){
+    if(name === undefined || null){
+      name = "Anon"
+    }
     var poem = lineOne + "\n" + lineTwo + "\n" + lineThree;
       $http({
         url: '/postPoem',
@@ -38,27 +41,51 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
       })
   }
 
+
+  $("document").ready(function(){
+      $("#submitPoemButton").on("click", function() {
+        if ($(".textField").val() !== ""){
+          $(".textField").val("")
+        }
+      })
+
+      $("#authortextField").on("click", function() {
+        if ($(".textField").val() !== ""){
+          $(".textField").val("")
+        }
+      })
+  })
+
+
+
+
   $scope.checkLegalFive = function(line){
     if(checkSent(line) !== 5){
-      $('#lineone').css("background", "rgba(244, 66, 66, 0.3)")
+      $('#lineone').css("background", "rgba(244, 66, 66, 0.75)")
+      $('#submitPoemButton').prop('disabled', true);
     } else {
-      $('#lineone').css("background", "none")
+      $('#lineone').css("background", "white")
+      $('#submitPoemButton').prop('disabled', false);
     }
 }
 
   $scope.checkLegalSeven = function(line){
     if(checkSent(line) !== 7){
-      $('#linetwo').css("background", "rgba(244, 66, 66, 0.3)")
+      $('#linetwo').css("background", "rgba(244, 66, 66, 0.75)")
+      $('#submitPoemButton').prop('disabled', true);
     } else {
-      $('#linetwo').css("background", "none")
+      $('#linetwo').css("background", "white")
+      $('#submitPoemButton').prop('disabled', false);
     }
   }
 
   $scope.checkLegalSevenTwo = function(line){
     if(checkSent(line) !== 5){
-      $('#linethree').css("background", "rgba(244, 66, 66, 0.3)")
+      $('#linethree').css("background", "rgba(244, 66, 66, 0.75)")
+      $('#submitPoemButton').prop('disabled', true);
     } else {
-      $('#linethree').css("background", "none")
+      $('#linethree').css("background", "white")
+      $('#submitPoemButton').prop('disabled', false);
     }
   }
 

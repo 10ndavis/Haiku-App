@@ -55,6 +55,11 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/client/index.html')
 });
 
+app.get('/styles.css', function (req, res) {
+  res.sendfile(__dirname + '/public/client/styles.css')
+});
+
+
 app.get('/haikusServices.js', function (req, res) {
   res.sendfile(__dirname + '/app/services/haikusServices.js')
 });

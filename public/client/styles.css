@@ -1,0 +1,13 @@
+body {
+  background-image: url("http://cdn.wallpapersafari.com/40/25/J8MjA2.jpg");
+  background-size: cover;
+}
+
+
+#poemsdiv {
+  border: solid #e3e7ed 5px;
+  background: rgba(54, 25, 25, .2);
+  border border-radius: 2px;
+  margin: 10px;
+  color: white;
+}
