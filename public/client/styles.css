@@ -1,21 +1,24 @@
 body {
-  background-image: url("http://cdn.wallpapersafari.com/40/25/J8MjA2.jpg");
+  background-image: url("http://www.pixelstalk.net/wp-content/uploads/2016/07/Peaceful-Wallpapers.jpg");
   background-size: cover;
 }
 
 
 #poemsdiv {
   border: solid #e3e7ed 5px;
-  background: rgba(54, 25, 25, .2);
+  background: rgba(159, 161, 165, .4);
   border border-radius: 2px;
   color: white;
 }
 
 .col-centered{
+  font-size: 20px;
   text-align: center;
   float: none;
   margin: 0 auto;
+  margin-top: 10px;
   width: 65%;
+  text-shadow: 1px 1px black;
 }
 
 
