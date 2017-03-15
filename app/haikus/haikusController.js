@@ -33,7 +33,7 @@ app.controller('haikuCtrl', function($scope, $interval, $http) {
     if(name === undefined || null){
       name = "Anon"
     }
-    var poem = lineOne + ", " + lineTwo + ", " + lineThree;
+    var poem = lineOne + " " + lineTwo + " " + lineThree;
       $http({
         url: '/postPoem',
         method: 'POST',
